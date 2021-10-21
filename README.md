@@ -1,4 +1,3 @@
-# Codepath-Group-Project
 Original App Design Project - README Template
 ===
 
@@ -88,7 +87,7 @@ An app that assist students and job seekers in navigating the career fair and ad
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
-<img src="https://imgur.com/gallery/HlfY0JT" width=600>
+<img src='https://i.imgur.com/XOB9Zzy.jpeg' width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
