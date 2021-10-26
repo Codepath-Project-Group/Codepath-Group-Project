@@ -90,8 +90,9 @@ An app that assist students and job seekers in navigating the career fair and ad
 <img src='https://i.imgur.com/XOB9Zzy.jpeg' width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
-
+<img src='https://imgur.com/gallery/YtGJP3M' width=600>
 ### [BONUS] Interactive Prototype
+<img src='https://imgur.com/gallery/Amw7nz3' width=600>
 
 ## Schema 
 [This section will be completed in Unit 9]
