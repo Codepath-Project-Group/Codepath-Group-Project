@@ -95,9 +95,12 @@ An app that assist students and job seekers in navigating the career fair and ad
 <img src='https://i.imgur.com/xuqyw0x.gif' width=600>
 
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+<img src='https://i.imgur.com/4LhSp01.jpeg' width=600>
+<img src='https://i.imgur.com/BFOQLFY.jpg' width=600>
+<img src='https://i.imgur.com/98B2Gh8.jpg' width=600>
+<img src='https://i.imgur.com/PelPj8T.jpg' width=600>
+
 ### Networking
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
