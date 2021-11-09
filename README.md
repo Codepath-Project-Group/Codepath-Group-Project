@@ -28,13 +28,15 @@ An app that assist students and job seekers in navigating the career fair and ad
 
 **Required Must-have Stories**
 
-* User can login into the app
-* Users can scroll through the list of employers
-* Users can view a map of the career fair
-* Users can read a company description through the detailed screen
-* User profile containing Name, Expexted Graduation, Major, Job Interest, ect.
-* Users can take take notes
-* Users can search based company name
+[x] User can login into the app
+[]  Users can scroll through the list of employers
+[]  Users can view a map of the career fair
+[]  Users can read a company description through the detailed screen
+[]  User profile containing Name, Expexted Graduation, Major, Job Interest, ect.
+[x]  Users can take take notes
+[x] Users can add photos to note
+[]  Users can search through notes
+[]  Users can search based company name
 
 **Optional Nice-to-have Stories**
 
@@ -125,3 +127,6 @@ An app that assist students and job seekers in navigating the career fair and ad
 
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+### Sprint 1 Gif
+<img src='https://i.imgur.com/PS5g9Bq.gif' width=600>
