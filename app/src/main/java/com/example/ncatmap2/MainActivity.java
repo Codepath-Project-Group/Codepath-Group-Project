@@ -1,21 +1,18 @@
 package com.example.ncatmap2;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.ncatmap2.ui.notes.NotesActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.ncatmap2.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
-    /* private ActivityMainBinding binding;
+    public static final String TAG = "MainActivity";
+    /*private ActivityMainBinding binding;
 
      @Override
      protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +35,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_notes);
 
-        Button button2 = findViewById(R.id.button);
+        Button btnConfirm = findViewById(R.id.btnConfirm);
+
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NotesActivity.class);
+                Log.i(TAG, "Button Clicked");
+                startActivity(intent);
+            }
+        });
     }
+
+
 
 
 }

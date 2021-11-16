@@ -20,7 +20,7 @@
         app:menu="@menu/bottom_nav_menu" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnConfirm"
         android:layout_width="140dp"
         android:layout_height="59dp"
         android:layout_marginStart="132dp"
