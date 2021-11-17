@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.19739583333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23125" />
+        <entry key="app/src/main/res/layout/activity_main2.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_notes.xml" value="0.22864583333333333" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1671875" />
         <entry key="app/src/main/res/xml/fileprovider.xml" value="0.24583333333333332" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="openjdk-16" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="openjdk-16" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

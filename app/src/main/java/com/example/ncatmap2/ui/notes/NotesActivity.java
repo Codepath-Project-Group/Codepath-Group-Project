@@ -15,15 +15,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.ncatmap2.MainActivity;
 import com.example.ncatmap2.R;
+import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.io.File;
-
-import static android.service.controls.ControlsProviderService.TAG;
+import java.util.List;
 
 public class NotesActivity extends AppCompatActivity {
 
@@ -45,6 +45,8 @@ public class NotesActivity extends AppCompatActivity {
         btnCaptureImage = findViewById(R.id.btnCaptureImage);
         ivPostImage = findViewById(R.id.ivPostImage);
         btnSubmit = findViewById(R.id.btnSubmit);
+
+        queryPosts();
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +71,24 @@ public class NotesActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void queryPosts() {
+        ParseQuery<Note> query = ParseQuery.getQuery(Note.class);
+        query.include(Note.KEY_USER);
+        query.findInBackground(new FindCallback<Note>() {
+            @Override
+            public void done(List<Note> objects, ParseException e) {
+                if(e != null) {
+                    Log.e(TAG, "Issues with getting posts", e);
+                    return;
+                }
+                for(Note note: objects) {
+                    Log.i(TAG, "Note: " + note.getKeyText());
+
+                }
+            }
+        });
     }
 
     private void launchCamera() {
