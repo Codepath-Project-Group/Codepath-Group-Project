@@ -1,9 +1,12 @@
 package com.example.ncatmap2.ui.notes;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -18,6 +21,7 @@ import android.widget.Toast;
 import com.example.ncatmap2.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
@@ -46,13 +50,12 @@ public class NotesActivity extends AppCompatActivity {
         ivPostImage = findViewById(R.id.ivPostImage);
         btnSubmit = findViewById(R.id.btnSubmit);
 
-        queryPosts();
+        // queryPosts();
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 launchCamera();
-                
             }
         });
 
@@ -65,8 +68,14 @@ public class NotesActivity extends AppCompatActivity {
                     Toast.makeText(NotesActivity.this,"Note cannot be empty",Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(photoFile == null || ivPostImage.getDrawable() == null) {
+                    Toast.makeText(NotesActivity.this,"There is no image!",Toast.LENGTH_SHORT).show();
+                    return;
+
+                }
+                Toast.makeText(NotesActivity.this,"Note added successfully",Toast.LENGTH_SHORT).show();
                 ParseUser currentUser = ParseUser.getCurrentUser();
-                savePost(text, currentUser);
+                savePost(text, currentUser, photoFile);
 
             }
         });
@@ -111,6 +120,22 @@ public class NotesActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                // by this point we have the camera photo on disk
+                Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
+                // RESIZE BITMAP, see section below
+                // Load the taken image into a preview
+                ivPostImage.setImageBitmap(takenImage);
+            } else { // Result was a failure
+                Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     // Returns the File for a photo stored on disk given the fileName
     public File getPhotoFileUri(String fileName) {
         // Get safe storage directory for photos
@@ -127,20 +152,22 @@ public class NotesActivity extends AppCompatActivity {
        return new File(mediaStorageDir.getPath() + File.separator + fileName);
     }
 
-    private void savePost(String text, ParseUser currentUser) {
+    private void savePost(String noteDesc, ParseUser currentUser, File photoFile) {
         Note note = new Note();
-       note.setKeyText(text);
-       //note.setImage()
+       note.setKeyText(noteDesc);
+       note.setKeyImage(new ParseFile(photoFile));
         note.setKeyUser(currentUser);
         note.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
                 if(e != null) {
-                    Log.e(TAG, "Error while saving");
+                    Log.e(TAG, "Error while saving", e);
                     Toast.makeText(NotesActivity.this, "Error while saving!", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 Log.i(TAG, "Post save was successful");
                 etNote.setText("");
+                ivPostImage.setImageResource(0);
             }
         });
     }
