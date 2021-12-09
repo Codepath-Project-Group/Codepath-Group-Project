@@ -17,14 +17,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        bottomNav = findViewById(R.id.nav_view);
+        setContentView(R.layout.activity_main_welcome);
+        bottomNav = findViewById(R.id.navView);
         bottomNav.setOnItemSelectedListener(item -> {
-            Fragment fragment;
+            Intent i;
             switch(item.getItemId()) {
-                case R.id.navH:
-                    Intent i = new Intent(this, NotesActivity.class);
+                case R.id.action_compose:
+                     i = new Intent(this, NotesActivity.class);
                     startActivity(i);
+                    break;
+                case R.id.action_home:
+                    i = new Intent(this, MainActivity.class);
+                    startActivity(i);
+
             }
             return true;
         });
