@@ -33,7 +33,7 @@ The following are Must-have Stories:
 - [ ]  Users can scroll through the list of employers
 - [ ]  Users can view a map of the career fair
 - [ ]  Users can read a company description through the detailed screen
-- [ ]  User profile containing Name, Expexted Graduation, Major, Job Interest, ect.
+- [x]  User profile containing Name, Expexted Graduation, Major, Job Interest, ect.
 - [x]  Users can take take notes
 - [x] Users can add photos to note
 - [ ]  Users can search through notes
